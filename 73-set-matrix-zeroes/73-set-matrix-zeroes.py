@@ -21,23 +21,3 @@ class Solution:
         for col in list(zeros['cols']):
             for row in range(nrows):
                 matrix[row][col] = 0
-                    
-        '''
-        while i<nrows:
-            j=0
-            while j<ncolumns and i<nrows:
-                print(i,j, matrix[i][j])
-                if matrix[i][j] == 0:
-                    # make column zero
-                    for r in range(nrows):
-                        matrix[r][j] = 0
-                        
-                    # make row zero
-                    for c in range(ncolumns):
-                        matrix[i][c] = 0
-                        
-                    i+=1; j+=1 # move diagonally
-                else:
-                    j+=1
-            i+=1
-        '''
