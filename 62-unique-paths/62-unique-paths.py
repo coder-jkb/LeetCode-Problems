@@ -1,25 +1,12 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        saved = dict()
-        def helper(i,j):
-            if (i,j) in saved:
-                return saved[(i,j)]
-            
-            if i==m-1 and j==n-1:
-                saved[(i,j)] = 1
-            
-            elif j==n-1:
-                saved[(i, j)] = helper(i+1, j)
-            
-            elif i==m-1:
-                saved[(i, j)] = helper(i,j+1)
-            
-            else:
-                saved[(i, j)] = helper(i, j+1)+helper(i+1, j)
-            
-            return saved[(i, j)]
+        dp = [[0 for _ in range(n)] for _ in range(m)]
         
-        return helper(0,0)
-
-s = Solution()
-s.uniquePaths(3,3)
+        for i in range(m):
+            for j in range(n):
+                if i==0 or j==0:
+                    dp[i][j] = 1
+                else:
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1]
+                    
+        return dp[i][j]
