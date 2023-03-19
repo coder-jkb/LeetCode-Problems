@@ -6,16 +6,8 @@
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         mid, j = head, head
-        while j.next:
+        while j and j.next:
             mid = mid.next
-            j = j.next
-            if j.next:
-                j = j.next
-                
-            
-        if j.next == None:
-            return mid
+            j = j.next.next
         
-        else:
-            return mid.next
-        
+        return mid
