@@ -7,16 +7,12 @@ class Solution:
         r = n-1
         while l<=r:
             mid = (l+r)//2
-            # print(l,r,mid)
-            bad_adj = isBadVersion(mid), isBadVersion(mid+1)
-            if not bad_adj[0] and bad_adj[1]:
-                return mid+1
+            bad_mid = isBadVersion(mid)
+            if bad_mid: r = mid-1
             
-            elif bad_adj[0] and bad_adj[1]:
-                r = mid-1
-                
-            else:
-                l = mid+1  
+            else: l = mid+1
+            
+        return l
             
             
             
