@@ -1,7 +1,16 @@
 class Solution:
     remaining = {1: 1, 2: 2} # for future reference
     def climbStairs(self, n: int) -> int:
-        if n not in Solution.remaining:
-            Solution.remaining[n] = self.climbStairs(n-1) + self.climbStairs(n-2)
+        # iterative approach
+        if n in (1, 2):
+            return n
         
-        return Solution.remaining[n] 
+        i, j = 1, 2
+        count = 0
+        while count<n-2:
+            ans = i + j
+            i = j
+            j = ans
+            count+=1
+            
+        return ans
