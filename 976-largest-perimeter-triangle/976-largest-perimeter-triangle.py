@@ -3,9 +3,10 @@ class Solution:
         nums.sort()
         # s1, s2, s3 = nums[-3:]
         maxp = 0
-        for i in range(len(nums)-2):
-            s1, s2, s3 = nums[i:i+3]
+        for i in range(len(nums)-1,1,-1):
+            s1, s2, s3 = nums[i-2:i+1]
             if s1 + s2 > s3:
-                maxp = max(maxp, s1 + s2 + s3)
+                # maxp = max(maxp, s1 + s2 + s3)
+                return s1 + s2 + s3
                 
-        return maxp
+        return 0
