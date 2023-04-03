@@ -6,16 +6,20 @@ class Solution:
             return mat 
         
         # if reshaping is possible
-        ans = [[0 for _ in range(c)] for _ in range(r)]
+        # ans = [[0 for _ in range(c)] for _ in range(r)]
         
         i, j = 0, 0 # 
+        ans = [[]]
         for row in range(r0):
             for col in range(c0):
-                ans[i][j] = mat[row][col]
-                j+=1
+                
                 if j==c:
-                    j=0
+                    ans.append([mat[row][col]])
+                    j=1
                     i+=1
+                else:
+                    ans[i].append(mat[row][col])
+                    j+=1
 
         return ans
             
