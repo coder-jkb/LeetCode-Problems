@@ -1,13 +1,10 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        nums2i = {}
         nums2len = len(nums2)
         ans = []
-        for i, num in enumerate(nums2):
-            nums2i[num] = i
             
         for num in nums1:
-            index = nums2i[num]
+            index = nums2.index(num)
             
             i = index+1
             while i < nums2len:
