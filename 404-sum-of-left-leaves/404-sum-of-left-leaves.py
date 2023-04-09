@@ -5,17 +5,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def helper(self,node):
+    
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
         s = 0
-        if node:
-            left = node.left
-            # if leaf node
+        if root:
+            left = root.left
+            # if left is a leaf node 
             if left and left.left == None and left.right == None:
                 s += left.val
             
-            return s + self.helper(node.left) + self.helper(node.right)
+            return s + self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)
         
         return 0
-    
-    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
-        return self.helper(root)
