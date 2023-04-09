@@ -4,15 +4,9 @@ class MyQueue:
         self.s1 = []
 
     def push(self, x: int) -> None:
-        s2 = []
-        while self.s1:
-            val = self.s1.pop()
-            s2.append(val)
-            
-        self.s1.append(x)
-        while s2:
-            val = s2.pop()
-            self.s1.append(val)
+        s2 = self.s1[::-1]
+        self.s1 = [x]
+        self.s1.extend(s2[::-1])
             
         
 
